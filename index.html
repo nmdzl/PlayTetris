@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Prog 5: Tetris!</title>
+
+        <link type="text/css" rel="stylesheet" href="index.css">
+
+        <script type="text/javascript" src="gl-matrix-min.js"></script>
+        <script type="text/javascript" src="rasterize.js"></script>
+        
+    </head>
+
+    <body onload="render_framework();">
+
+        <canvas class="board" id="framework" width="400" height="800"></canvas>
+        <canvas class="board" id="myWebGLCanvas" width="400" height="800"></canvas>
+        <canvas id="nextObjectCanvas" width="200" height="200"></canvas>
+        <canvas id="firstPersonCanvas" width="200" height="200"></canvas>
+        <div id="title">Teris! - by zding8</div>
+        <div class="display" id="instructions-container">
+            Operations
+            <br><br>
+            <div style="font-size:18px; color:rgb(224, 224, 224);">
+                UP / W -> rotate
+                <br><br>
+                LEFT / A -> move left
+                <br><br>
+                RIGHT / D -> move right
+                <br><br>
+                DOWN / S -> dive
+                <br><br>
+                SPACE -> land
+            </div>
+        </div>
+        <div class="display" id="nextObject-container">Next Tetromino</div>
+        <div class="display" id="firstPerson-container">First-Person View</div>
+
+        <div class="display" id="score-container">
+            Score:
+            <br>
+            <div class="detail" id="score">0</div>
+        </div>
+        <div class="display" id="level-container">
+            Level:
+            <br>
+            <div class="detail" id="level">0</div>
+        </div>
+        <div class="display" id="max_score-container">
+            Highest Score:
+            <br>
+            <div class="detail" id="max_score">0</div>
+        </div>
+        <div class="display" id="max_level-container">
+            Highest Level:
+            <br>
+            <div class="detail" id="max_level">0</div>
+        </div>
+        <div class="display" id="message-container"></div>
+        <div class="message-box" id="game_over"></div>
+
+        <button id="game_start" onclick="main();" onkeyup="event.preventDefault()">START</button>
+        <button id="view_2d" onclick="setupShaders(2);" onkeyup="event.preventDefault()">2D</button>
+        <button id="view_3d" onclick="setupShaders(3);" onkeyup="event.preventDefault()">3D</button>
+    </body>
+</html>
